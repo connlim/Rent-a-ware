@@ -12,7 +12,7 @@ const store = new Vuex.Store({
     state: {
         // 当前用户
         user: {
-            name: 'coffce',
+            name: 'Albert',
             img: 'dist/images/1.jpg'
         },
         // 会话列表
@@ -20,15 +20,15 @@ const store = new Vuex.Store({
             {
                 id: 1,
                 user: {
-                    name: '示例介绍',
-                    img: 'assets/logo.png'
+                    name: 'Akash',
+                    img: 'assets/logo.png'//replace with his face later
                 },
                 messages: [
                     {
-                        content: 'Hello，这是一个基于Vue + Vuex + Webpack构建的简单chat示例，聊天记录保存在localStorge, 有什么问题可以通过Github Issue问我。',
+                        content: 'Hello，May I rent a labcoat every wednesday for my chemistry prac.',
                         date: now
                     }, {
-                        content: '项目地址: https://github.com/coffcer/vue-chat',
+                        content: 'Please.',
                         date: now
                     }
                 ]
@@ -36,7 +36,7 @@ const store = new Vuex.Store({
             {
                 id: 2,
                 user: {
-                    name: 'webpack',
+                    name: 'Shi Hern',
                     img: 'assets/logo.png'
                 },
                 messages: []
