@@ -1,5 +1,5 @@
 <template>
-  <nav id="navbar" class="navbar has-shadow is-spaced">
+  <nav id="navbar" class="navbar has-shadow is-fixed-top">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
         <img style="max-height: 36px" src="../assets/logo_strong.png">

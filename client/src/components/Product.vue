@@ -1,9 +1,8 @@
 <template>
   <div class="">
     <Navbar></Navbar>
-    <div id="product-main" class="container is-widescreen">
+    <div class="container is-widescreen" style="margin-top: 20px;">
       <div class="columns">
-
         <div class="column is-8">
           <div class="card">
             <header class="card-content">

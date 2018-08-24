@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Product />
+    <Messaging />
   </div>
 </template>
 
@@ -18,7 +18,8 @@ export default {
   name: 'app',
   components: {
     Landing,
-    Product
+    Product,
+    Messaging
   }
 }
 </script>
