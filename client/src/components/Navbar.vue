@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-transparent is-spaced">
+  <nav id="navbar" class="navbar has-shadow is-spaced">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
         <img style="max-height: 38px" src="../assets/logo.png">
@@ -11,12 +11,12 @@
       </a>
     </div>
 
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item has-text-white" href="about">
+        <a class="navbar-item" href="about">
           About
         </a>
-        <a class="navbar-item has-text-white" href="help">
+        <a class="navbar-item" href="help">
           Help
         </a>
       </div>
@@ -25,13 +25,8 @@
         <div class="navbar-item">
           <div class="field is-grouped">
             <p class="control">
-              <a class="button is-primary is-inverted is-outlined" href="">
-                <strong>Register</strong>
-              </a>
-            </p>
-            <p class="control">
               <a class="button is-primary">
-                <strong>Sign In</strong>
+                <strong>New Listing</strong>
               </a>
             </p>
           </div>

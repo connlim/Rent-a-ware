@@ -11,7 +11,7 @@
       </a>
     </div>
 
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-menu">
       <div class="navbar-start">
         <a class="navbar-item has-text-white" href="about">
           About
