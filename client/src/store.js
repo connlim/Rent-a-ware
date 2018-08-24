@@ -21,7 +21,7 @@ const store = new Vuex.Store({
                 id: 1,
                 user: {
                     name: '示例介绍',
-                    img: 'dist/images/2.png'
+                    img: 'assets/logo.png'
                 },
                 messages: [
                     {
@@ -37,7 +37,7 @@ const store = new Vuex.Store({
                 id: 2,
                 user: {
                     name: 'webpack',
-                    img: 'dist/images/3.jpg'
+                    img: 'assets/logo.png'
                 },
                 messages: []
             }
