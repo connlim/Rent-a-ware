@@ -48,7 +48,13 @@
                   <span>{{ location }}</span>
                 </p><br>
 
-                <a style="margin-bottom: 10px;" class="button is-primary is-fullwidth">
+                <input id="datetime-picker" class="input" type="text" placeholder="Start Date">
+                <div style="text-align: center; padding-top: 5px; padding-bottom: 5px;">
+                  <b-icon icon="arrow-down"></b-icon>
+                </div>
+                <input id="datetime-picker" class="input" type="text" placeholder="End Date">
+
+                <a style="margin-bottom: 10px; margin-top: 10px;" class="button is-primary is-fullwidth">
                   <strong>Book</strong>
                 </a>
                 <a class="button is-primary is-outlined is-fullwidth">
@@ -66,14 +72,22 @@
 
 <script>
 import Navbar from "./Navbar.vue";
-
+import flatpickr from 'flatpickr'
 
 export default {
   name: "Product",
   components: {
     Navbar
   },
-  data() {
+  mounted: function() {
+    flatpickr('#datetime-picker', {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        altInput: true,
+        altFormat: "F j, Y H:i K"
+    });
+  },
+  data: function() {
     return {
       cost: 10000,
       owner: "Akash",
