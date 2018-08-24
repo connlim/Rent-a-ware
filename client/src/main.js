@@ -1,10 +1,11 @@
 import Vue from 'vue'
-import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'
+import Buefy from 'buefy'
+import '@mdi/font/css/materialdesignicons.min.css'
 import App from './App.vue'
 
 Vue.config.productionTip = false
-Vue.use(Buefy)
+Vue.use(Buefy, { defaultIconPack: 'mdi' })
 
 new Vue({
   render: h => h(App)

@@ -16,7 +16,7 @@
           <div class="column is-8 is-offset-2">
             <div class="subtitle">
               <b-field>
-                <b-input size="is-large" placeholder="What would you like to rent today?"></b-input>
+                <b-input type="search" icon="magnify" size="is-large" placeholder="What would you like to rent today?"></b-input>
               </b-field>
             </div>
           </div>

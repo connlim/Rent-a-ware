@@ -26,7 +26,7 @@
           <div class="field is-grouped">
             <p class="control">
               <a class="button is-primary is-inverted is-outlined" href="">
-                <strong>Register</strong>
+                <span>Register</span>
               </a>
             </p>
             <p class="control">
