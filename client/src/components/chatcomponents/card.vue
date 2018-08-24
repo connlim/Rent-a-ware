@@ -1,5 +1,5 @@
 <script>
-import { actions } from '../store';
+import { actions } from '../../store';
 export default {
     vuex: {
         actions: actions,
@@ -23,7 +23,7 @@ export default {
         <p class="name">{{user.name}}</p>
     </header>
     <footer>
-        <input class="search" type="text" placeholder="search user..." @keyup="onKeyup | debounce 150">
+        <input class="search" type="text" placeholder="search user..." on-keyup="onKeyup | debounce 150">
     </footer>
 </div>
 </template>

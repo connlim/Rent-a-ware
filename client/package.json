@@ -11,8 +11,11 @@
     "@mdi/font": "^2.6.95",
     "buefy": "^0.6.6",
     "flatpickr": "^4.5.1",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
     "vue": "^2.5.17",
-    "vue-full-calendar": "^2.6.1"
+    "vue-full-calendar": "^2.6.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",

@@ -1,5 +1,5 @@
 <script>
-import { actions } from '../store';
+import { actions } from '../../store';
 export default {
     vuex: {
         actions: actions,

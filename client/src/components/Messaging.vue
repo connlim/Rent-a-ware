@@ -1,9 +1,9 @@
 <script>
-import { actions } from './store';
-import Card from 'chatcomponents/card';
-import List from 'chatcomponents/list';
-import Text from 'chatcomponents/text';
-import Message from 'chatcomponents/message';
+import Card from './chatcomponents/card';
+import List from './chatcomponents/list';
+import Text from './chatcomponents/text';
+import Message from './chatcomponents/message';
+import { actions } from '../store';
 export default {
     components: { Card, List, Text, Message },
     vuex: {

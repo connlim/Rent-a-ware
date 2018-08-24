@@ -6,7 +6,7 @@ import 'fullcalendar/dist/fullcalendar.css'
 import 'flatpickr/dist/flatpickr.min.css'
 import App from './App.vue'
 import FullCalendar from 'vue-full-calendar'
-import store from './store';
+import store from './store'
 
 Vue.config.productionTip = false
 Vue.use(Buefy, { defaultIconPack: 'mdi' })
@@ -14,5 +14,6 @@ Vue.use(FullCalendar)
 
 new Vue({
   render: h => h(App),
+  store,
   store: store
 }).$mount('#app')

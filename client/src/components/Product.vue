@@ -29,7 +29,7 @@
         </div>
 
         <div class="column is-4">
-          <div class="card">
+          <div class="card" style="position: fixed; width: 29vw">
             <header class="card-header">
               <p class="card-header-title">Details</p>
             </header>
@@ -47,18 +47,21 @@
                   <b-icon icon="map-marker" type="is-primary"></b-icon>
                   <span>{{ location }}</span>
                 </p><br>
-
-                <input id="datetime-picker" class="input" type="text" placeholder="Start Date">
-                <div style="text-align: center; padding-top: 5px; padding-bottom: 5px;">
-                  <b-icon icon="arrow-down"></b-icon>
-                </div>
-                <input id="datetime-picker" class="input" type="text" placeholder="End Date">
-
-                <a style="margin-bottom: 10px; margin-top: 10px;" class="button is-primary is-fullwidth">
-                  <strong>Book</strong>
-                </a>
                 <a class="button is-primary is-outlined is-fullwidth">
                   <strong>Chat</strong>
+                </a>
+
+                <hr style="height: 1px; background-color: #EBEBEB; " />
+
+                <div style="margin-bottom: 10px;">
+                  <input label="Start" id="" class="input datetime-picker" type="text" placeholder="Start Datetime" />
+                </div>
+                <div>
+                  <input id="" class="input datetime-picker" type="text" placeholder="End Datetime" />
+                </div>
+
+                <a style="margin-top: 15px;" class="button is-primary is-medium is-fullwidth">
+                  <strong style="font-size: 16px">Book</strong>
                 </a>
               </div>
             </div>
@@ -80,7 +83,7 @@ export default {
     Navbar
   },
   mounted: function() {
-    flatpickr('#datetime-picker', {
+    flatpickr('.datetime-picker', {
         enableTime: true,
         dateFormat: "Y-m-d H:i",
         altInput: true,
