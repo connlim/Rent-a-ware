@@ -40,6 +40,14 @@ const store = new Vuex.Store({
                     img: 'assets/logo.png'
                 },
                 messages: []
+            },
+            {
+                id: 3,
+                user: {
+                    name: 'Someone(Yeshuai possibly)',
+                    img: 'assets/logo.png'
+                },
+                messages: []
             }
         ],
         // 当前选中的会话
