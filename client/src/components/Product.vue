@@ -23,7 +23,7 @@
           <br>
           <div class="card">
             <br>
-            <full-calendar :events="events"></full-calendar>
+            <full-calendar :events="events" :config="config" @event-selected="eventSelected"></full-calendar>
           </div>
         </div>
 
@@ -89,6 +89,11 @@ export default {
         altFormat: "F j, Y H:i K"
     });
   },
+  methods: {
+    eventSelected: function(event, jsEvent, view) {
+      window.alert('click!')
+    }
+  },
   data: function() {
     return {
       cost: 10000,
@@ -97,7 +102,7 @@ export default {
       maxDuration: "3 days",
       datePosted: "2018-09-09",
       config: {
-        contentHeight: 410
+        editable: false
       },
       events: [
         {
