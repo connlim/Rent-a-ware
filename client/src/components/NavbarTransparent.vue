@@ -2,7 +2,7 @@
   <nav class="navbar is-transparent is-spaced">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img style="max-height: 38px" src="../assets/logo.png">
+        <img style="max-height: 36px" src="../assets/logo.png">
       </a>
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
         <span aria-hidden="true"></span>

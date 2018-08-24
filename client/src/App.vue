@@ -18,7 +18,8 @@ export default {
   name: 'app',
   components: {
     Landing,
-    Product
+    Product,
+    Messaging
   }
 }
 </script>
