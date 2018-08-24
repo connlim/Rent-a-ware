@@ -15,7 +15,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="rentaware logo straight.svg">
+   sodipodi:docname="rentaware logo straight.svg"
+   inkscape:export-filename="C:\Users\Albert Zhang\Desktop\rentaware logo straight.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -26,7 +29,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="133.04093"
+     inkscape:cx="-68.484503"
      inkscape:cy="223.19086"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -57,7 +60,7 @@
      transform="translate(0,-540.36216)">
     <g
        id="g4512"
-       transform="translate(-6.3620941,31.993414)">
+       transform="matrix(1.9021366,0,0,1.9021366,-243.04854,-657.57161)">
       <text
          sodipodi:linespacing="125%"
          id="text4228"
