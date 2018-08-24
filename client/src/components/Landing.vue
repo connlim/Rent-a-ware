@@ -4,7 +4,7 @@
       <NavbarTransparent />
     </div>
     <div class="hero-body">
-      <div class="container margin-bottom-60">
+      <div class="container margin-bottom-nav">
         <div class="columns is-fullhd">
           <div class="column is-6 is-offset-2">
             <div class="title has-text-white">
@@ -38,8 +38,8 @@ export default {
 </script>
 
 <style scoped>
-.margin-bottom-60 {
-  margin-bottom: 60px;
+.margin-bottom-nav {
+  margin-bottom: 84px;
 }
 .has-bg-img { 
   background: linear-gradient(0deg,rgba(70,70,70,0.3),rgba(70, 70, 70, 0.3)), url('../assets/background.jpg') center center; 
