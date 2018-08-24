@@ -6,6 +6,9 @@
 
         <div class="column is-8">
           <div class="card">
+            <header class="card-content">
+              <p class="title">TITLE</p>
+            </header>
             <div class="card-image">
               <figure class="image is-4by3">
                 <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
@@ -18,6 +21,11 @@
               </div>
             </div>
           </div>
+          <br>
+          <div class="card">
+            <br>
+            <full-calendar :events="events"></full-calendar>
+          </div>
         </div>
 
         <div class="column is-4">
@@ -27,7 +35,6 @@
             </header>
             <div class="card-content">
               <div class="content">
-                <p class="posted">Posted on {{ datePosted }}</p>
                 <p class="details-list">
                   <b-icon icon="currency-usd" type="is-primary"></b-icon>
                   <span>{{ cost }}</span>
@@ -40,16 +47,15 @@
                   <b-icon icon="map-marker" type="is-primary"></b-icon>
                   <span>{{ location }}</span>
                 </p><br>
-                <p class="details-list">
-                  <b-icon icon="clock" type="is-primary"></b-icon>
-                  <span>{{ maxDuration }}</span>
-                </p>
+
+                <a style="margin-bottom: 10px;" class="button is-primary is-fullwidth">
+                  <strong>Book</strong>
+                </a>
+                <a class="button is-primary is-outlined is-fullwidth">
+                  <strong>Chat</strong>
+                </a>
               </div>
             </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">Book Now</a>
-              <a href="#" class="card-footer-item">Chat</a>
-            </footer>
           </div>
         </div>
 
@@ -60,6 +66,7 @@
 
 <script>
 import Navbar from "./Navbar.vue";
+
 
 export default {
   name: "Product",
@@ -72,7 +79,26 @@ export default {
       owner: "Akash",
       location: "Pasir Ris",
       maxDuration: "3 days",
-      datePosted: "2018-09-09"
+      datePosted: "2018-09-09",
+      config: {
+        contentHeight: 410
+      },
+      events: [
+        {
+            title  : 'event1',
+            start  : '2018-08-01',
+        },
+        {
+            title  : 'event2',
+            start  : '2018-08-05',
+            end    : '2018-08-07',
+        },
+        {
+            title  : 'event3',
+            start  : '2018-08-09T12:30:00',
+            allDay : false,
+        },
+      ]
     }
   }
 };
