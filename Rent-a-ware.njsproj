@@ -17,6 +17,15 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include="client\src\components\HelloWorld.vue" />
+    <Content Include="client\src\components\Landing.vue" />
+    <Content Include="client\src\components\Messaging.vue" />
+    <Content Include="client\src\components\Navbar.vue" />
+    <Content Include="client\src\components\NavbarTransparent.vue" />
+    <Content Include="client\src\components\NewListing.vue" />
+    <Content Include="client\src\components\Product.vue" />
+    <Content Include="client\src\components\Profile.vue" />
+    <Content Include="client\src\components\Search.vue" />
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="client\package-lock.json" />
