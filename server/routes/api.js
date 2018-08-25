@@ -15,7 +15,6 @@ const auth = passport.authenticate("local");
  * Post with username, password in body
  */
 router.post("/users/register", async (req, res) => {
-    console.log(req.body);
     const { username, password } = req.body;
     try {
         const user = await Users.register(new Users({ username }), password);
@@ -90,8 +89,6 @@ router.post("/wares/create", upload.single("image"), async (req, res) => {
  */
 router.get("/wares/:wareId/image", async (req, res) => {
     const { image, imageMimeType } = await Wares.findById(req.params.wareId);
-    console.log(image);
-    console.log(imageMimeType);
     res.contentType(imageMimeType);
     res.end(image);
 });
