@@ -32,6 +32,7 @@ export default {
 .card {
     padding: 12px;
     border-bottom: solid 1px #24272C;
+    background-color: #2E3238;
     footer {
         margin-top: 10px;
     }
