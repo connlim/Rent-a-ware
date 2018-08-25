@@ -38,7 +38,7 @@ export default {
                 console.log($('.message'))
                 $('.message a').on("click", function () {
                     console.log('BU');
-                    $('.login-form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+                    $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
                 });
             });
 
