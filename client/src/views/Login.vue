@@ -27,7 +27,6 @@
                 if(this.input.username != "" && this.input.password != "") {
                     let {username, password} = this.input;
                     let resp = await auth.login(username, password);
-                    console.log(resp)
                     if(resp.status === 200) {
                         this.$emit("authenticated", true);//use passport
                         this.$router.replace({ name: "product" });

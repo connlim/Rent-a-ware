@@ -15,6 +15,7 @@ const auth = passport.authenticate("local");
  * Post with username, password in body
  */
 router.post("/users/register", async (req, res) => {
+    console.log(req.body);
     const { username, password } = req.body;
     try {
         const user = await Users.register(new Users({ username }), password);
