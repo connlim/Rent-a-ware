@@ -4,6 +4,8 @@ import Landing from './views/Landing.vue'
 import Product from './views/Product.vue'
 import Messaging from './views/Messaging.vue'
 import Search from './views/Search.vue'
+import Login from './views/Login.vue'
+import Register from './views/Register.vue'
 
 Vue.use(Router)
 
@@ -33,6 +35,16 @@ export default new Router({
       path: '/search',
       name: 'search',
       component: Search
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'reguster',
+      component: Register
     }
   ]
 })
