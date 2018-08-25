@@ -17,6 +17,15 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include="client\src\components\HelloWorld.vue" />
+    <Content Include="client\src\components\Landing.vue" />
+    <Content Include="client\src\components\Messaging.vue" />
+    <Content Include="client\src\components\Navbar.vue" />
+    <Content Include="client\src\components\NavbarTransparent.vue" />
+    <Content Include="client\src\components\NewListing.vue" />
+    <Content Include="client\src\components\Product.vue" />
+    <Content Include="client\src\components\Profile.vue" />
+    <Content Include="client\src\components\Search.vue" />
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="client\package-lock.json" />
@@ -62,6 +71,10 @@
     <Folder Include="server\data\entities" />
     <Folder Include="server\public" />
     <Folder Include="server\routes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="client\src\data\api.js" />
+    <Compile Include="client\src\data\rest.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
