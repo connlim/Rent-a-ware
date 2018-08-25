@@ -5,6 +5,12 @@ const {Users, Deals, Wares} = require("../data/models");
 
 const auth = passport.authenticate("local");
 
+//REMEMBER if you are using fetch, use it like this: https://stackoverflow.com/questions/34558264/fetch-api-with-cookie
+//authentication is managed using session cookies
+
+/*
+ * Post with username, password in body
+ */
 router.post("/users/register", async (req, res) => {
     const { username, password } = req.body;
     try {
@@ -18,18 +24,29 @@ router.post("/users/register", async (req, res) => {
     });
 });
 
-
+/*
+ * Post with username, password in body
+ */
 router.post("/users/login", auth, (req, res) => {
     req.login(req.body, () => {
         res.sendStatus(200);
     });
 });
 
+/*
+ *Just get
+ */
 router.get("/users/logout", (req, res) => {
     req.logout();
     res.sendStatus(200);
 });
 
+/**
+ * Get .If logged in, returns user object (200) with fields:
+ *      - username,
+ *      - wares (list of wares for this person)
+ * otherwise return (400) this object {auth: false}
+ */
 router.get("/users/info/me", (req, res) => {
     if (req.user === undefined) {
         res.status(400).send({ auth: false });
@@ -42,6 +59,9 @@ router.get("/users/info/me", (req, res) => {
     }
 });
 
+/*
+ * Post name, price, description (price is number), tags (array of String), slots (array of {start: Date, end: Date})
+ */
 router.post("/wares/create", async (req, res) => {
     const {user, body} = req;
     const {name, price, description} = body;
@@ -57,6 +77,9 @@ router.post("/wares/create", async (req, res) => {
     });
 });
 
+/*
+ * Post ware (the ware's _id), buyerSlotProposal (array of {start: Date, end: Date})
+ */
 router.post("/deals/new", async (req, res) => {
     const {user, body} = req;
     const {ware, buyerSlotProposal} = body;
@@ -70,6 +93,20 @@ router.post("/deals/new", async (req, res) => {
     });
 });
 
+/*
+ * Get with q = search query
+ * returns ware object with seller information(username)
+ * {
+        name,
+        tags,
+        price,
+        description,
+        slots,
+        seller: {
+            username
+        }
+ * }
+ */
 router.get("/search", async (req, res) => {
     const q = `.*${req.query.q}.*`;
 
@@ -114,6 +151,9 @@ function consolidateDeal(deal) {
 
 }
 
+/*
+ * Post, make sure dealId is deal._id
+ */
 router.post("/deals/:dealId/buyer-confirm", async (req, res) => {
     const deal = await Deals.findById(req.param.dealId).populate('ware');
     if (req.user._id !== deal.buyer) {
@@ -126,6 +166,9 @@ router.post("/deals/:dealId/buyer-confirm", async (req, res) => {
     await deal.save();
 });
 
+/*
+ * Post, make sure dealId is deal._id
+ */
 router.post("/deals/:dealId/seller-confirm", async (req, res) => {
     const deal = await Deals.findById(req.param.dealId);
     console.log(deal.ware.seller);
@@ -136,11 +179,6 @@ router.post("/deals/:dealId/seller-confirm", async (req, res) => {
     deal.sellerConfirmation = true;
     consolidateDeal(deal);
     await deal.save();
-});
-
-
-router.get("/", async (req, res, next) => {
-    res.send("respond with a resource");
 });
 
 module.exports = router;
