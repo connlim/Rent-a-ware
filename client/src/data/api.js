@@ -49,7 +49,7 @@ export default {
     sellerConfirm: async function(dealId) {
         return (await post(`/api/deals/${dealId}/seller-confirm`)).json();
     },
-    getImage: async function(wareId) {
-        return (await post(`"/wares/${wareId}/image"`)).json();
+    getImage: function(wareId) {
+        return get(`/api/wares/${wareId}/image`);
     },
 }

@@ -19,7 +19,7 @@ export default new Router({
       component: Landing
     },
     {
-      path: '/product',
+      path: '/product/:id',
       name: 'Product',
       component: Product
       // route level code-splitting
