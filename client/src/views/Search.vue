@@ -13,7 +13,7 @@
                   <b-tag type="is-info" v-for="tag in result.tags">{{ tag }}</b-tag>
               </b-taglist>
               <h5 class="small-margin-bottom gray-color">{{ result.name }}</h5>
-              <small class="gray-color">{{ result.price }}</small>
+              <small class="gray-color">${{ result.price }}</small><br>
               <small class="gray-color">{{ result.location }}</small>
             </div>
           </a>
@@ -34,7 +34,6 @@ export default {
   },
   methods: {
     getSearchData: function() {
-      // alert(this.$route.params.query)
       /*
       * Returns [{
       *      _id: ObjectId,
@@ -47,19 +46,28 @@ export default {
       *      slots: [{start: Date, end: Date}]
       * }]
       */
+      let that = this;
       api.search(this.$route.params.query)
         .then(function(res) {
           console.log(res);
+          that.results = res;
         }).catch(function(err) {
           console.log(err);
         });
-    }
+    },
+    // downloadImage: function() {
+    //   api.getImage(this.results._id)
+    //     .then(function(res) {
+    //       console.log(res);
+
+    //     })
+    // }
   },
   created() {
     this.getSearchData();
   },
   updated() {
-    this.getSearchData();
+    // this.getSearchData();
   },
   data() {
     return {

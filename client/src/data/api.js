@@ -13,11 +13,11 @@ export default {
      *      slots: [{start: Date, end: Date}]
      * }
      */
-    createWare: async (ware) => {
-        return await post("/api/wares/create", ware);
+    createWare: async function(ware) {
+        return (await post("/api/wares/create", ware)).json();
     },
-    findWareById: async (wareId) => {
-        return await get(`/api/wares/${wareId}`);
+    findWareById: async function (wareId) {
+        return (await get(`/api/wares/${wareId}`)).json();
     },
     /*
      * deal is {
@@ -25,8 +25,8 @@ export default {
      *      buyerSlotProposal: [{start: Date, end: Date}]
      * }
      */
-    createDeal: async (deal) => {
-        return await post("/api/deals/create", deal);
+    createDeal: async function (deal) {
+        return (await post("/api/deals/create", deal)).json();
     },
     /*
      * Returns [{
@@ -41,12 +41,15 @@ export default {
      * }]
      */
     search: async function(text) {
-        return await get(`/api/search?q=${text}`);
+        return (await get(`/api/search?q=${text}`)).json();
     },
-    buyerConfirm: async (dealId) => {
-        await post(`/api/deals/${dealId}/buyer-confirm`);
+    buyerConfirm: async function(dealId) {
+        return (await post(`/api/deals/${dealId}/buyer-confirm`)).json();
     },
-    sellerConfirm: async (dealId) => {
-        await post(`/api/deals/${dealId}/seller-confirm`);
+    sellerConfirm: async function(dealId) {
+        return (await post(`/api/deals/${dealId}/seller-confirm`)).json();
+    },
+    getImage: async function(wareId) {
+        return (await post(`"/wares/${wareId}/image"`)).json();
     },
 }
