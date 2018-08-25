@@ -3,6 +3,9 @@ const router = express.Router();
 const passport = require("passport");
 const {Users, Deals, Wares} = require("../data/models");
 
+var multer = require('multer');
+var upload = multer();
+
 const auth = passport.authenticate("local");
 
 //REMEMBER if you are using fetch, use it like this: https://stackoverflow.com/questions/34558264/fetch-api-with-cookie
@@ -62,27 +65,41 @@ router.get("/users/info/me", (req, res) => {
 /*
  * Post name, price, location, description (price is number), tags (array of String), slots (array of {start: Date, end: Date})
  */
-router.post("/wares/create", async (req, res) => {
+router.post("/wares/create", upload.single("image"), async (req, res) => {
     const {user, body} = req;
     const {name, price, description, location} = body;
     const tags = JSON.parse(body.tags);
     const slots = JSON.parse(body.slots);
-    await Wares.create({
+    let ware = await Wares.create({
         seller: user._id,
         name,
         tags,
         price,
         description,
         slots,
-        location
+        location,
+        image: req.file.buffer,
+        imageMimeType: req.file.mimetype
     });
+    res.send(ware._id);
+});
+
+/*
+ * get image of ware given its id
+ */
+router.get("/wares/:wareId/image", async (req, res) => {
+    const { image, imageMimeType } = await Wares.findById(req.params.wareId);
+    console.log(image);
+    console.log(imageMimeType);
+    res.contentType(imageMimeType);
+    res.end(image);
 });
 
 /*
  * Get. Returns a ware given an id
  */
 router.get("/wares/:wareId", async (req, res) => {
-    res.json(await Wares.findById(req.param.wareId));
+    res.json(await Wares.findById(req.param.wareId, { imageMimeType: 0, image: 0 }));
 });
 
 /*
@@ -123,7 +140,7 @@ router.get("/search", async (req, res) => {
         { "description": { $regex : q } },
         { "location": { $regex : q } },
         { "tags": { $elemMatch: { $regex: q } } }
-    ]}).populate('seller'));
+    ]}, { imageMimeType: 0, image: 0 }).populate('seller'));
 });
 
 
@@ -163,7 +180,7 @@ function consolidateDeal(deal) {
  * Post, make sure dealId is deal._id
  */
 router.post("/deals/:dealId/buyer-confirm", async (req, res) => {
-    const deal = await Deals.findById(req.param.dealId).populate('ware');
+    const deal = await Deals.findById(req.params.dealId).populate('ware');
     if (req.user._id !== deal.buyer) {
         res.status(400).send("Not buyer!");
         return;
@@ -178,7 +195,7 @@ router.post("/deals/:dealId/buyer-confirm", async (req, res) => {
  * Post, make sure dealId is deal._id
  */
 router.post("/deals/:dealId/seller-confirm", async (req, res) => {
-    const deal = await Deals.findById(req.param.dealId);
+    const deal = await Deals.findById(req.params.dealId);
     console.log(deal.ware.seller);
     if (req.user._id !== deal.ware.seller) {
         res.status(400).send("Not seller!");
