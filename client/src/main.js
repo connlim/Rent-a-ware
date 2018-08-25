@@ -14,6 +14,5 @@ Vue.use(FullCalendar)
 
 new Vue({
   render: h => h(App),
-  store,
   store: store
 }).$mount('#app')

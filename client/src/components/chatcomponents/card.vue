@@ -1,17 +1,20 @@
 <script>
 import { actions } from '../../store';
+import { mapGetters } from 'vuex';
 export default {
     vuex: {
         actions: actions,
-        getters: {
-            user: ({ user }) => user,
-            filterKey: ({ filterKey }) => filterKey
-        }
     },
     methods: {
         onKeyup (e) {
             this.search(e.target.value);
         }
+    },
+    computed: {
+        ...mapGetters([
+            'user',
+            'filterKey',
+        ])
     }
 };
 </script>
