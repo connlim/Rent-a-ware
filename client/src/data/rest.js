@@ -18,3 +18,9 @@ export function post(url, body, options={}) {
     }
     return fetchInternal(url, options);
 }
+
+export function postFormData(url, formData) {
+    options.method = "POST";
+    options.body = formData;
+    return fetchInternal(url, options);
+}

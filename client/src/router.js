@@ -7,6 +7,7 @@ import Search from './views/Search.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 import Loginbeautify from './views/Loginbeautify.vue'
+import NewListing from './views/NewListing.vue'
 
 Vue.use(Router)
 
@@ -51,6 +52,11 @@ export default new Router({
       path: '/loginb',
       name: 'loginb',
       component: Loginbeautify
+    },
+    {
+      path: '/new',
+      name: 'newlisting',
+      component: NewListing
     }
   ]
 })

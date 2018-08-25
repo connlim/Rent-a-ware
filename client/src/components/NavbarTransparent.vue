@@ -13,12 +13,16 @@
 
     <div class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="about">
-          <router-link class="has-text-white" to="/about">About</router-link>
-        </a>
-        <a class="navbar-item has-text-white" href="help">
-          <router-link class="has-text-white" to="/help">Help</router-link>
-        </a>
+        <router-link class="has-text-white" to="/about">
+          <a class="navbar-item has-text-white">
+            About
+          </a>
+        </router-link>
+        <router-link class="has-text-white" to="/help">
+          <a class="navbar-item has-text-white">
+            Help
+          </a>
+        </router-link>
       </div>
 
       <div class="navbar-end">

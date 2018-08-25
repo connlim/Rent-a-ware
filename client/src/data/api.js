@@ -14,7 +14,7 @@ export default {
      * }
      */
     createWare: async function(ware) {
-        return (await post("/api/wares/create", ware)).json();
+        return (await postFormData("/api/wares/create", ware)).json();
     },
     findWareById: async function (wareId) {
         return (await get(`/api/wares/${wareId}`)).json();
