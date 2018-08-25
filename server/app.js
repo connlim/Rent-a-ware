@@ -16,8 +16,11 @@ const secret = 'keyboard cat';
 app.use(cors({ credentials: true, origin: true }));
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+/*app.use(express.json());
+app.use(express.urlencoded({ extended: true }));*/
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(require("cookie-session")({
     name: 'sessionkey',
     secret: secret,

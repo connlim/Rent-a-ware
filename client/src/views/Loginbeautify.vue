@@ -5,13 +5,13 @@
       <input type="text" name="Username" v-model="input.username" placeholder="Username"/>
       <input type="password" name="Password" v-model="input.password" placeholder="Password"/>
       <button v-on:click="register()">create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
+      <p class="message">Already registered? <a  href="javascript:void(0)">Sign In</a></p>
     </form>
     <form class="login-form">
       <input type="text" name="Username" v-model="input.username" placeholder="Username"/>
       <input type="password" name="Password" v-model="input.password" placeholder="Password"/>
       <button v-on:click="login()">login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
+      <p class="message">Not registered? <a  href="javascript:void(0)">Create an account</a></p>
     </form>
   </div>
 </div>
@@ -19,11 +19,8 @@
 
 <script>
 import {login as registerServer} from '../data/auth';
+import Vue from 'vue';
 import $ from 'jquery';
-
-$('.message a').click(function(){
-   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-});
 
 export default {
         name: 'Loginbeautify',
@@ -35,10 +32,23 @@ export default {
                 }
             }
         },
+        created() {
+            console.log('ready')
+            Vue.nextTick(() => {
+                console.log($('.message'))
+                $('.message a').on("click", function () {
+                    console.log('BU');
+                    $('.login-form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+                });
+            });
+
+        },
         methods: {
-            login() {
+            async login() {
                 if(this.input.username != "" && this.input.password != "") {
-                    if(registerServer(username, password)) {//TODO here, send this.input.username to server, dont bother hashing pw, is hackathon
+                    let {username, password} = this.input;
+                    let resp = await auth.login(username, password);
+                    if(resp.status === 200) {
                         this.$emit("authenticated", true);//use passport
                         this.$router.replace({ name: "product" });
                     } else {
@@ -59,7 +69,6 @@ export default {
         }
     }
 
-//insert akash push registration
 
 </script>
 

@@ -13,5 +13,14 @@ export function post(url, body, options={}) {
     options.method = "POST";
     if(body !== undefined)
         options.body = JSON.stringify(body);
+    options.headers = {
+        "Content-Type": "application/json"
+    }
+    return fetchInternal(url, options);
+}
+
+export function postFormData(url, formData) {
+    options.method = "POST";
+    options.body = formData;
     return fetchInternal(url, options);
 }
