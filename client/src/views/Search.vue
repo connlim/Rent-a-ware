@@ -1,7 +1,7 @@
 <template>
-  <div class="">
+  <div>
     <Navbar></Navbar>
-    <div class="container is-widescreen" style="margin-top: 20px;">
+    <div class="container is-widescreen" style="margin-top: 72px;">
       <div class="columns">
         <div class="column is-8">
           <div class="card">
@@ -73,26 +73,12 @@
 </template>
 
 <script>
-import Navbar from "./Navbar.vue";
-import flatpickr from 'flatpickr'
+import Navbar from "../components/Navbar.vue";
 
 export default {
-  name: "Product",
+  name: "Search",
   components: {
     Navbar
-  },
-  mounted: function() {
-    flatpickr('.datetime-picker', {
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        altInput: true,
-        altFormat: "F j, Y H:i K"
-    });
-  },
-  methods: {
-    eventSelected: function(event, jsEvent, view) {
-      window.alert('click!')
-    }
   },
   data: function() {
     return {
@@ -101,25 +87,6 @@ export default {
       location: "Pasir Ris",
       maxDuration: "3 days",
       datePosted: "2018-09-09",
-      config: {
-        editable: false
-      },
-      events: [
-        {
-            title  : 'event1',
-            start  : '2018-08-01',
-        },
-        {
-            title  : 'event2',
-            start  : '2018-08-05',
-            end    : '2018-08-07',
-        },
-        {
-            title  : 'event3',
-            start  : '2018-08-09T12:30:00',
-            allDay : false,
-        },
-      ]
     }
   }
 };

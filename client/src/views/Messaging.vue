@@ -1,8 +1,8 @@
 <script>
-import Card from './chatcomponents/card';
-import List from './chatcomponents/list';
-import Text from './chatcomponents/text';
-import Message from './chatcomponents/message';
+import Card from '../components/chatcomponents/card';
+import List from '../components/chatcomponents/list';
+import Text from '../components/chatcomponents/text';
+import Message from '../components/chatcomponents/message';
 import '../store';
 export default {
     components: { Card, List, Text, Message },
