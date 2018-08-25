@@ -1,9 +1,8 @@
 <script>
 import { mapGetters } from 'vuex';
+import Vue from 'vue'
 
 export default {
-    vuex: {
-    },
     filters: {
         // 将日期过滤为 hour:minutes
         time (date) {
@@ -13,14 +12,15 @@ export default {
             return date.getHours() + ':' + date.getMinutes();
         }
     },
-    directives: {
-        // 发送消息后滚动到底部
-        'scroll-bottom' () {
-            this.vm.$nextTick(() => {
-                this.el.scrollTop = this.el.scrollHeight - this.el.clientHeight;
-            });
-        }
-    },
+    // directives: {
+    //     // 发送消息后滚动到底部
+    //     'scroll-bottom': function () {
+    //         let that = this
+    //         Vue.nextTick(() => {
+    //             that.$el.scrollTop = that.$el.scrollHeight - that.$el.clientHeight;
+    //         });
+    //     }
+    // },
     computed: {
         ...mapGetters([
             'user',
@@ -39,7 +39,7 @@ export default {
             </p>
             <div class="main" :class="{ self: item.self }">
                 <img class="avatar" width="30" height="30" :src="item.self ? user.img : session.user.img" />
-                <div class="text">{{ item.content }}</div>
+                <div class="text">{{ item.messageText }}</div>
             </div>
         </li>
     </ul>
@@ -83,7 +83,7 @@ export default {
         background-color: #fafafa;
         border-radius: 4px;
         &:before {
-            content: " ";
+            messageText: " ";
             position: absolute;
             top: 9px;
             right: 100%;

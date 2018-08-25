@@ -1,15 +1,17 @@
 <script>
-import { actions } from '../../store';
-import { mapGetters } from 'vuex';
+import '../../store';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
-    vuex: {
-        actions: actions,
-    },
     computed: {
         ...mapGetters([
             'sessions',
             'currentId',
+        ])
+    },
+    methods: {
+        ...mapMutations([
+            'selectSession',
         ])
     }
 };

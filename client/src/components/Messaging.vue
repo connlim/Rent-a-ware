@@ -3,14 +3,11 @@ import Card from './chatcomponents/card';
 import List from './chatcomponents/list';
 import Text from './chatcomponents/text';
 import Message from './chatcomponents/message';
-import { actions } from '../store';
+import '../store';
 export default {
     components: { Card, List, Text, Message },
-    vuex: {
-        actions: actions
-    },
     mounted () {
-        actions.initData();
+        this.$store.commit('initData');
     }
 }
 </script>
