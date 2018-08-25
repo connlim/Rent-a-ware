@@ -19,11 +19,13 @@
 
 <script>
 import {login as registerServer} from '../data/auth';
+import $ from 'jquery';
+
 $('.message a').click(function(){
    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
 export default {
-        name: 'Login',
+        name: 'Loginbeautify',
         data() {
             return { //stores creds here
                 input: {
