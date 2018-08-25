@@ -19,6 +19,9 @@
         <a class="navbar-item" href="help">
           Help
         </a>
+        <b-field style="display: flex; align-items: center; margin-left: 1em">
+          <b-input style="width: 30rem" icon="magnify" placeholder="Search" rounded></b-input>
+        </b-field>
       </div>
 
       <div class="navbar-end">
