@@ -1,15 +1,15 @@
-export function fetchInternal(url, options) {
-    options.credentials = "same-origin";
+export function fetchInternal(url, options={}) {
+    options.credentials = "include";
     //TODO add prefix/port here
-    return fetch(url, options);
+    return fetch('http://localhost:3000' + url, options);
 }
 
-export function get(url, options) {
+export function get(url, options={}) {
     options.method = "GET";
     return fetchInternal(url, options);
 }
 
-export function post(url, body, options) {
+export function post(url, body, options={}) {
     options.method = "POST";
     if(body !== undefined)
         options.body = JSON.stringify(body);
