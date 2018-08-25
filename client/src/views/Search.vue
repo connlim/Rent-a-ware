@@ -4,13 +4,13 @@
     <div class="container is-widescreen" style="margin-top: 72px;">
       <div class="columns is-multiline is-mobile">
         <div class="column is-one-quarter" v-for="result in results" v-bind:key="result._id">
-          <a class="item">
+          <a class="item" @click="gotoProduct(result)">
             <figure class="image is-3by2">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+              <img v-bind:src="'http://localhost:3000/api/wares/' + result._id + '/image'" alt="Placeholder image">
             </figure>
             <div class="content small-margin-top">
-              <b-taglist>
-                  <b-tag type="is-info" v-for="tag in result.tags">{{ tag }}</b-tag>
+              <b-taglist class="is-marginless">
+                  <b-tag type="is-primary" v-for="tag in result.tags">{{ tag }}</b-tag>
               </b-taglist>
               <h5 class="small-margin-bottom gray-color">{{ result.name }}</h5>
               <small class="gray-color">${{ result.price }}</small><br>
@@ -49,19 +49,12 @@ export default {
       let that = this;
       api.search(this.$route.params.query)
         .then(function(res) {
-          console.log(res);
           that.results = res;
-        }).catch(function(err) {
-          console.log(err);
-        });
+        })
     },
-    // downloadImage: function() {
-    //   api.getImage(this.results._id)
-    //     .then(function(res) {
-    //       console.log(res);
-
-    //     })
-    // }
+    gotoProduct: function(result) {
+      this.$router.push(`/product/${result._id}`);
+    }
   },
   created() {
     this.getSearchData();
