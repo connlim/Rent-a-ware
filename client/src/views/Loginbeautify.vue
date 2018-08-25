@@ -11,7 +11,7 @@
       <input type="text" name="Username" v-model="input.username" placeholder="Username"/>
       <input type="password" name="Password" v-model="input.password" placeholder="Password"/>
       <button v-on:click="login()">login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
+      <p class="message">Not registered? <button>Create an account</button></p>
     </form>
   </div>
 </div>
@@ -21,8 +21,11 @@
 import {login as registerServer} from '../data/auth';
 import $ from 'jquery';
 
-$('.message a').click(function(){
-   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+let g = $('.message > button');
+console.log(g);
+g.click(function(){
+    console.log('BU');
+   $('.login-form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
 
 export default {
@@ -61,7 +64,6 @@ export default {
         }
     }
 
-//insert akash push registration
 
 </script>
 

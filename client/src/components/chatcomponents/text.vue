@@ -19,7 +19,7 @@ export default {
 
 <template>
 <div class="text">
-    <textarea placeholder="按 Ctrl + Enter 发送" v-model="content" @keyup="onKeyup"></textarea>
+    <textarea placeholder="Ctrl + Enter to send" v-model="content" @keyup="onKeyup"></textarea>
 </div>
 </template>
 

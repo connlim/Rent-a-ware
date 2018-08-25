@@ -3,9 +3,10 @@ import Card from '../components/chatcomponents/card';
 import List from '../components/chatcomponents/list';
 import Text from '../components/chatcomponents/text';
 import Message from '../components/chatcomponents/message';
+import NavbarTransparent from '../components/NavbarTransparent';
 import '../store';
 export default {
-    components: { Card, List, Text, Message },
+    components: { Card, List, Text, Message, NavbarTransparent },
     mounted () {
         this.$store.commit('initData');
     }
@@ -19,6 +20,9 @@ export default {
         <list></list>
     </div>
     <div class="main">
+        <div class="main-head">
+            <NavbarTransparent />
+        </div>
         <message></message>
         <text></text>
     </div>
