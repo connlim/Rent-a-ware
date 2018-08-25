@@ -11,6 +11,7 @@
 </template>
 
 <script>
+    import {login as registerServer} from '../data/api';
     export default {
         name: 'Login',
         data() {
