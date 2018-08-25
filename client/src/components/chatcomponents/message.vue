@@ -38,7 +38,7 @@ export default {
                 <span>{{ item.date | time }}</span>
             </p>
             <div class="main" :class="{ self: item.self }">
-                <img class="avatar" width="30" height="30" :src="item.self ? user.img : session.user.img" />
+                <img class="avatar" width="30" height="30" src="../../assets/user.png"/>
                 <div class="text">{{ item.messageText }}</div>
             </div>
         </li>

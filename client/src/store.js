@@ -13,7 +13,6 @@ const store = new Vuex.Store({
         // 当前用户
         user: {
             name: 'Albert',
-            img: 'dist/images/1.jpg'
         },
         // 会话列表
         sessions: [
@@ -21,7 +20,6 @@ const store = new Vuex.Store({
                 id: 1,
                 user: {
                     name: 'Akash',
-                    img: 'assets/square.png'//replace with his face later
                 },
                 messages: [
                     {
@@ -37,7 +35,6 @@ const store = new Vuex.Store({
                 id: 2,
                 user: {
                     name: 'Shi Hern',
-                    img: 'assets/square.png'
                 },
                 messages: [
                     {

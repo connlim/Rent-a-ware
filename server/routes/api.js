@@ -60,11 +60,11 @@ router.get("/users/info/me", (req, res) => {
 });
 
 /*
- * Post name, price, description (price is number), tags (array of String), slots (array of {start: Date, end: Date})
+ * Post name, price, location, description (price is number), tags (array of String), slots (array of {start: Date, end: Date})
  */
 router.post("/wares/create", async (req, res) => {
     const {user, body} = req;
-    const {name, price, description} = body;
+    const {name, price, description, location} = body;
     const tags = JSON.parse(body.tags);
     const slots = JSON.parse(body.slots);
     await Wares.create({
@@ -73,7 +73,8 @@ router.post("/wares/create", async (req, res) => {
         tags,
         price,
         description,
-        slots
+        slots,
+        location
     });
 });
 
@@ -113,11 +114,10 @@ router.get("/search", async (req, res) => {
     res.json(await Wares.find({$or: [
         { "name": { $regex : q } },
         { "description": { $regex : q } },
+        { "location": { $regex : q } },
         { "tags": { $elemMatch: { $regex: q } } }
     ]}).populate('seller'));
 });
-
-//TODO do something when both buyer and seller confirms
 
 function consolidateDeal(deal) {
     if (!(deal.buyerConfirmation && deal.sellerConfirmation)) return;
@@ -180,5 +180,7 @@ router.post("/deals/:dealId/seller-confirm", async (req, res) => {
     consolidateDeal(deal);
     await deal.save();
 });
+
+//TODO put some chatting system here
 
 module.exports = router;
