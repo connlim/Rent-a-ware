@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import NavbarTransparent from './NavbarTransparent.vue'
+import NavbarTransparent from '../components/NavbarTransparent.vue'
 
 export default {
   name: 'Landing',

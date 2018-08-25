@@ -1,28 +1,8 @@
 <template>
   <div id="app">
-    <Messaging />
+    <router-view/>
   </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-import Landing from './components/Landing.vue'
-import Messaging from './components/Messaging.vue'
-import NewListing from './components/NewListing.vue'
-import Profile from './components/Profile.vue'
-import Search from './components/Search.vue'
-import Product from './components/Product.vue'
-
-
-export default {
-  name: 'app',
-  components: {
-    Landing,
-    Product,
-    Messaging
-  }
-}
-</script>
 
 <style>
 #app {
