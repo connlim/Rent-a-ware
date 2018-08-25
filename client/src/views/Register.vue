@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    import {register as registerServer} from '../data/api';
+    import auth from '../data/auth';
 
     export default {
         name: 'Register',
@@ -24,9 +24,10 @@
             }
         },
         methods: {
-            register() {
+            async register() {
                 if(this.input.username != "" && this.input.password != "") {
-                    registerServer(this.input.username, this.input.password);
+                    let res = await auth.register(this.input.username, this.input.password);
+                    console.log(res);
                 } else {
                     console.log("A username and password must be present");
                 }
