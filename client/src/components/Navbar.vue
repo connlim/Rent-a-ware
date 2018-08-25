@@ -13,12 +13,16 @@
 
     <div class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="about">
-          <router-link style="color: rgb(72, 72, 72)" to="/about">About</router-link>
-        </a>
-        <a class="navbar-item" href="help">
-          <router-link style="color: rgb(72, 72, 72)" to="/help">Help</router-link>
-        </a>
+        <router-link to="/about">
+          <a style="color: rgb(72, 72, 72)" class="navbar-item">
+            About
+          </a>
+        </router-link>
+        <router-link to="/help">
+          <a style="color: rgb(72, 72, 72)" class="navbar-item">
+            Help
+          </a>
+        </router-link>
         <div style="display: flex; align-items: center; margin-left: 1em">
           <input v-model="query" @keyup.enter="redirectToSearch" style="width: 30rem;" class="input is-rounded" placeholder="Search">
         </div>
@@ -28,9 +32,11 @@
         <div class="navbar-item">
           <div class="field is-grouped">
             <p class="control">
-              <a class="button is-primary">
-                <strong>New Listing</strong>
-              </a>
+              <router-link style="color: rgb(72, 72, 72)" to="/new">
+                <a class="button is-primary">
+                  <strong>New Listing</strong>
+                </a>
+              </router-link>
             </p>
           </div>
         </div>
