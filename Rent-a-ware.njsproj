@@ -41,14 +41,12 @@
     <Content Include="client\src\assets\logo_source_strongercolors.svg" />
     <Content Include="server\data\db.js" />
     <Content Include="server\data\models.js" />
-    <Content Include="server\public\index.html" />
     <Content Include="server\routes\api.js" />
     <Content Include="server\routes\index.js" />
     <Content Include="server\data\entities\deal.js" />
     <Content Include="server\data\entities\slot.js" />
     <Content Include="server\data\entities\user.js" />
     <Content Include="server\data\entities\ware.js" />
-    <Content Include="server\public\stylesheets\style.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="client" />
@@ -63,9 +61,6 @@
     <Folder Include="server\data" />
     <Folder Include="server\data\entities" />
     <Folder Include="server\public" />
-    <Folder Include="server\public\images" />
-    <Folder Include="server\public\javascripts" />
-    <Folder Include="server\public\stylesheets" />
     <Folder Include="server\routes" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
