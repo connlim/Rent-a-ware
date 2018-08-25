@@ -88,7 +88,7 @@ router.get("/wares/:wareId", async (req, res) => {
 /*
  * Post ware (the ware's _id), buyerSlotProposal (array of {start: Date, end: Date})
  */
-router.post("/deals/new", async (req, res) => {
+router.post("/deals/create", async (req, res) => {
     const {user, body} = req;
     const {ware, buyerSlotProposal} = body;
     await Deals.create({
