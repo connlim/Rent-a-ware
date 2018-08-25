@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
+
 
 var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
@@ -11,6 +13,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var app = express();
 const secret = 'keyboard cat';
+app.use(cors({ credentials: true, origin: true }));
 
 app.use(logger('dev'));
 app.use(express.json());
