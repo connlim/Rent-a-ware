@@ -15,9 +15,7 @@
         <div class="columns is-fullhd">
           <div class="column is-8 is-offset-2">
             <div class="subtitle">
-              <b-field>
-                <b-input type="search" icon="magnify" size="is-large" placeholder="What would you like to rent today?"></b-input>
-              </b-field>
+              <input type="search" v-model="query" @keyup.enter="redirectToSearch" class="input is-large" placeholder="What would you like to rent today?">
             </div>
           </div>
         </div>
@@ -33,6 +31,13 @@ export default {
   name: 'Landing',
   components: {
     NavbarTransparent
+  },
+  methods: {
+    redirectToSearch: function() {
+      if (this.query.length > 0) {
+        this.$router.push('/search/' + this.query)
+      }
+    }
   }
 }
 </script>

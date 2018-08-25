@@ -14,14 +14,14 @@
     <div class="navbar-menu">
       <div class="navbar-start">
         <a class="navbar-item" href="about">
-          About
+          <router-link style="color: rgb(72, 72, 72)" to="/about">About</router-link>
         </a>
         <a class="navbar-item" href="help">
-          Help
+          <router-link style="color: rgb(72, 72, 72)" to="/help">Help</router-link>
         </a>
-        <b-field style="display: flex; align-items: center; margin-left: 1em">
-          <b-input style="width: 30rem" icon="magnify" placeholder="Search" rounded></b-input>
-        </b-field>
+        <div style="display: flex; align-items: center; margin-left: 1em">
+          <input v-model="query" @keyup.enter="redirectToSearch" style="width: 30rem;" class="input is-rounded" placeholder="Search">
+        </div>
       </div>
 
       <div class="navbar-end">
@@ -41,7 +41,19 @@
 
 <script>
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  methods: {
+    redirectToSearch: function() {
+      if (this.query.length > 0) {
+        this.$router.push('/search/' + this.query)
+      }
+    }
+  },
+  data() {
+    return {
+      query: ''
+    }
+  }
 }
 </script>
 

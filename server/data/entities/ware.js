@@ -9,7 +9,9 @@ const wareSchema = new Schema({
     location: String,
     price: Number,
     description: String,
-    slots: [slotSchema]
+    slots: [slotSchema],
+    image: Buffer,
+    imageMimeType: String
 });
 
 module.exports = mongoose.model("Ware", wareSchema);

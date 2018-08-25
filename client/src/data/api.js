@@ -26,7 +26,7 @@ export default {
      * }
      */
     createDeal: async (deal) => {
-        return await post("api/deals/create", deal);
+        return await post("/api/deals/create", deal);
     },
     /*
      * Returns [{
@@ -40,13 +40,13 @@ export default {
      *      slots: [{start: Date, end: Date}]
      * }]
      */
-    search: async (text) => {
-        return await get(`api/search?q=${text}`);
+    search: async function(text) {
+        return await get(`/api/search?q=${text}`);
     },
     buyerConfirm: async (dealId) => {
-        await post(`api/deals/${dealId}/buyer-confirm`);
+        await post(`/api/deals/${dealId}/buyer-confirm`);
     },
     sellerConfirm: async (dealId) => {
-        await post(`api/deals/${dealId}/seller-confirm`);
+        await post(`/api/deals/${dealId}/seller-confirm`);
     },
 }
