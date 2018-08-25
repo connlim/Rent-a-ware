@@ -6,6 +6,7 @@ import Messaging from './views/Messaging.vue'
 import Search from './views/Search.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
+import Loginbeautify from './views/Loginbeautify.vue'
 
 Vue.use(Router)
 
@@ -45,6 +46,11 @@ export default new Router({
       path: '/register',
       name: 'reguster',
       component: Register
+    },
+    {
+      path: '/loginb',
+      name: 'loginb',
+      component: Loginbeautify
     }
   ]
 })

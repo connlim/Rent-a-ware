@@ -1,5 +1,7 @@
 <template>
-    <div id="login">
+    <section class="pager is-fullheight has-bg-img">
+        <div class="pager- is-fullhd">
+            <div id="login">
         <h1>Login</h1>
         <input type="text" name="Username" v-model="input.username" placeholder="Username" />
         <input type="password" name="Password" v-model="input.password" placeholder="Password" />
@@ -7,7 +9,9 @@
         <a class="button is-primary" v-on:click="login()">
             <span>Sign In</span>
         </a>
-    </div>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -48,4 +52,8 @@
         margin-top: 350px;
         padding: 20px;
     }
+.has-bg-img { 
+  background-color: #7cb342;
+  background-size: cover; 
+}
 </style>
