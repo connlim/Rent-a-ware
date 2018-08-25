@@ -18,9 +18,10 @@
 </template>
 
 <script>
-import {login as registerServer} from '../data/auth';
+import auth from '../data/auth';
 import Vue from 'vue';
 import $ from 'jquery';
+    console.log(auth);
 
 export default {
         name: 'Loginbeautify',
@@ -46,11 +47,15 @@ export default {
         methods: {
             async login() {
                 if(this.input.username != "" && this.input.password != "") {
+                    console.log("WHATFF")
                     let {username, password} = this.input;
+                    console.log(username, password)
                     let resp = await auth.login(username, password);
+                    console.log("ur face")
                     if(resp.status === 200) {
                         this.$emit("authenticated", true);//use passport
-                        this.$router.replace({ name: "product" });
+                        console.log("accepted");
+                        this.$router.push("/");
                     } else {
                         console.log("The username and / or password is incorrect");
                     }
