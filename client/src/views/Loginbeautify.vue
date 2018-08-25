@@ -1,5 +1,5 @@
 <template>
-    <div class="login-page" id="login">
+<div class="login-page">
   <div class="form">
     <form class="register-form">
       <input type="text" name="Username" v-model="input.username" placeholder="Username"/>
@@ -24,6 +24,7 @@ import $ from 'jquery';
 $('.message a').click(function(){
    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
+
 export default {
         name: 'Loginbeautify',
         data() {
@@ -35,14 +36,24 @@ export default {
             }
         },
         methods: {
-            login() {
+            async login() {
                 if(this.input.username != "" && this.input.password != "") {
-                    if(registerServer(username, password)) {//TODO here, send this.input.username to server, dont bother hashing pw, is hackathon
+                    let {username, password} = this.input;
+                    let resp = await auth.login(username, password);
+                    if(resp.status === 200) {
                         this.$emit("authenticated", true);//use passport
                         this.$router.replace({ name: "product" });
                     } else {
                         console.log("The username and / or password is incorrect");
                     }
+                } else {
+                    console.log("A username and password must be present");
+                }
+            },
+            async register() {
+                if(this.input.username != "" && this.input.password != "") {
+                    let res = await auth.register(this.input.username, this.input.password);
+                    console.log(res);
                 } else {
                     console.log("A username and password must be present");
                 }
