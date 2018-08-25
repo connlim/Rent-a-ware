@@ -19,7 +19,7 @@ export default {
 <template>
 <div class="card">
     <header>
-        <img class="avatar" width="40" height="40" :alt="user.name" :src="user.img">
+        <img class="avatar" width="40" height="40" :alt="user.name" src="../../assets/user.png">
         <p class="name">{{user.name}}</p>
     </header>
     <footer>

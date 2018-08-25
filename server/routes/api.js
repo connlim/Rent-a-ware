@@ -181,4 +181,6 @@ router.post("/deals/:dealId/seller-confirm", async (req, res) => {
     await deal.save();
 });
 
+//TODO put some chatting system here
+
 module.exports = router;
