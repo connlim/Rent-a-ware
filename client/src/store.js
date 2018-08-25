@@ -13,7 +13,6 @@ const store = new Vuex.Store({
         // 当前用户
         user: {
             name: 'Albert',
-            img: 'dist/images/1.jpg'
         },
         // 会话列表
         sessions: [
@@ -21,14 +20,13 @@ const store = new Vuex.Store({
                 id: 1,
                 user: {
                     name: 'Akash',
-                    img: 'assets/logo.png'//replace with his face later
                 },
                 messages: [
                     {
-                        content: 'Hello，May I rent a labcoat every wednesday for my chemistry prac.',
+                        messageText: 'Hello，May I rent a labcoat every wednesday for my chemistry prac.',
                         date: now
                     }, {
-                        content: 'Please.',
+                        messageText: 'Please.',
                         date: now
                     }
                 ]
@@ -37,17 +35,13 @@ const store = new Vuex.Store({
                 id: 2,
                 user: {
                     name: 'Shi Hern',
-                    img: 'assets/logo.png'
                 },
-                messages: []
-            },
-            {
-                id: 3,
-                user: {
-                    name: 'Someone(Yeshuai possibly)',
-                    img: 'assets/logo.png'
-                },
-                messages: []
+                messages: [
+                    {
+                        messageText: 'Hi i need to borrow GC.',
+                        date: now
+                    }
+                ]
             }
         ],
         // 当前选中的会话
@@ -63,10 +57,10 @@ const store = new Vuex.Store({
             }
         },
         // 发送消息
-        sendMessage ({ sessions, currentSessionId }, content) {
+        sendMessage ({ sessions, currentSessionId }, messageText) {
             let session = sessions.find(item => item.id === currentSessionId);
             session.messages.push({
-                content: content,
+                messageText: messageText,
                 date: new Date(),
                 self: true
             });

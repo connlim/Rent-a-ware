@@ -6,6 +6,7 @@ const wareSchema = new Schema({
     name: String,
     tags: [String],
     seller: { type: Schema.Types.ObjectId, ref: "User" },
+    location: String,
     price: Number,
     description: String,
     slots: [slotSchema]

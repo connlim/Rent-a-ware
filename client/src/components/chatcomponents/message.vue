@@ -38,8 +38,8 @@ export default {
                 <span>{{ item.date | time }}</span>
             </p>
             <div class="main" :class="{ self: item.self }">
-                <img class="avatar" width="30" height="30" :src="item.self ? user.img : session.user.img" />
-                <div class="text">{{ item.content }}</div>
+                <img class="avatar" width="30" height="30" src="../../assets/user.png"/>
+                <div class="text">{{ item.messageText }}</div>
             </div>
         </li>
     </ul>
@@ -83,7 +83,7 @@ export default {
         background-color: #fafafa;
         border-radius: 4px;
         &:before {
-            content: " ";
+            messageText: " ";
             position: absolute;
             top: 9px;
             right: 100%;

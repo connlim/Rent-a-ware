@@ -19,7 +19,7 @@ export default {
 <template>
 <div class="card">
     <header>
-        <img class="avatar" width="40" height="40" :alt="user.name" :src="user.img">
+        <img class="avatar" width="40" height="40" :alt="user.name" src="../../assets/user.png">
         <p class="name">{{user.name}}</p>
     </header>
     <footer>
@@ -32,6 +32,7 @@ export default {
 .card {
     padding: 12px;
     border-bottom: solid 1px #24272C;
+    background-color: #2E3238;
     footer {
         margin-top: 10px;
     }
