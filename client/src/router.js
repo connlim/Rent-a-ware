@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Landing from './views/Landing.vue'
 import Product from './views/Product.vue'
 import Messaging from './views/Messaging.vue'
+import Search from './views/Search.vue'
 
 Vue.use(Router)
 
@@ -30,8 +31,8 @@ export default new Router({
     },
     {
       path: '/search',
-      name: 'messsaging',
-      component: Messaging
+      name: 'search',
+      component: Search
     }
   ]
 })

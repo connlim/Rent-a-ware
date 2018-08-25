@@ -2,71 +2,18 @@
   <div>
     <Navbar></Navbar>
     <div class="container is-widescreen" style="margin-top: 72px;">
-      <div class="columns">
-        <div class="column is-8">
-          <div class="card">
-            <header class="card-content">
-              <p class="title">TITLE</p>
-            </header>
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
+      <div class="columns is-multiline is-mobile">
+        <div class="column is-one-quarter">
+          <a class="item">
+            <figure class="image is-3by2">
+              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+            </figure>
+            <div class="content small-margin-top">
+              <h5 style="color: rgb(72, 72, 72)" class="small-margin-bottom">Ti-Nspire CX-CAS Graphing Calculator</h5>
+              <small style="color: rgb(72, 72, 72)">$300 per hour</small>
             </div>
-            <div class="card-content">
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris.
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="card">
-            <br>
-            <full-calendar :events="events" :config="config" @event-selected="eventSelected"></full-calendar>
-          </div>
+          </a>
         </div>
-
-        <div class="column is-4">
-          <div class="card" style="position: fixed; width: 29vw">
-            <header class="card-header">
-              <p class="card-header-title">Details</p>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <p class="details-list">
-                  <b-icon icon="currency-usd" type="is-primary"></b-icon>
-                  <span>{{ cost }}</span>
-                </p><br>
-                <p class="details-list">
-                  <b-icon icon="account" type="is-primary"></b-icon>
-                  <span>{{ owner }}</span>
-                </p><br>
-                <p class="details-list">
-                  <b-icon icon="map-marker" type="is-primary"></b-icon>
-                  <span>{{ location }}</span>
-                </p><br>
-                <a class="button is-primary is-outlined is-fullwidth">
-                  <strong>Chat</strong>
-                </a>
-
-                <hr style="height: 1px; background-color: #EBEBEB; " />
-
-                <div style="margin-bottom: 10px;">
-                  <input label="Start" id="" class="input datetime-picker" type="text" placeholder="Start Datetime" />
-                </div>
-                <div>
-                  <input id="" class="input datetime-picker" type="text" placeholder="End Datetime" />
-                </div>
-
-                <a style="margin-top: 15px;" class="button is-primary is-medium is-fullwidth">
-                  <strong style="font-size: 16px">Book</strong>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
@@ -79,6 +26,11 @@ export default {
   name: "Search",
   components: {
     Navbar
+  },
+  methods: {
+    getSearchData: function() {
+
+    }
   },
   data: function() {
     return {
@@ -94,17 +46,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#product-main {
-  margin-top: 40px;
+.small-margin-bottom {
+  margin-bottom: 0.3em;
 }
-.details-list {
-  display: inline-flex;
-  vertical-align: middle;
-  break-after: always;
-}
-.posted {
-  margin-left: -5px;
-  margin-top: -20px;
-  font-size: 0.9rem;
+.small-margin-top {
+  margin-top: 0.7em;
 }
 </style>
