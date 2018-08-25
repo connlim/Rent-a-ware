@@ -1,10 +1,8 @@
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     vuex: {
-        getters: {
-            user: ({ user }) => user,
-            session: ({ sessions, currentSessionId }) => sessions.find(session => session.id === currentSessionId)
-        }
     },
     filters: {
         // 将日期过滤为 hour:minutes
@@ -22,6 +20,12 @@ export default {
                 this.el.scrollTop = this.el.scrollHeight - this.el.clientHeight;
             });
         }
+    },
+    computed: {
+        ...mapGetters([
+            'user',
+            'session',
+        ])
     }
 };
 </script>

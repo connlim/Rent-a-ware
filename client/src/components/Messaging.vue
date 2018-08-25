@@ -9,8 +9,8 @@ export default {
     vuex: {
         actions: actions
     },
-    created () {
-        this.initData();
+    mounted () {
+        actions.initData();
     }
 }
 </script>

@@ -79,6 +79,18 @@ const store = new Vuex.Store({
         SET_FILTER_KEY (state, value) {
             state.filterKey = value;
         }
+    },
+    getters: {
+        user: ({ user }) => user,
+        filterKey: ({ filterKey }) => filterKey,
+        // 过滤后的会话列表
+        sessions: ({ sessions, filterKey }) => {
+            let result = sessions.filter(session => session.user.name.includes(filterKey));
+            return result;
+        },
+        // 当前会话index
+        currentId: ({ currentSessionId }) => currentSessionId,
+        session: ({ sessions, currentSessionId }) => sessions.find(session => session.id === currentSessionId)
     }
 });
 
@@ -95,7 +107,7 @@ store.watch(
 
 export default store;
 export const actions = {
-    initData: ({ dispatch }) => dispatch('INIT_DATA'),
+    initData: () => store.dispatch('INIT_DATA'),
     sendMessage: ({ dispatch }, content) => dispatch('SEND_MESSAGE', content),
     selectSession: ({ dispatch }, id) => dispatch('SELECT_SESSION', id),
     search: ({ dispatch }, value) => dispatch('SET_FILTER_KEY', value)
