@@ -21,7 +21,7 @@ export default {
     },
     /*
      * deal is {
-     *      ware: ObjectId,
+     *      ware: ObjectId
      *      buyerSlotProposal: [{start: Date, end: Date}]
      * }
      */
