@@ -1,5 +1,7 @@
 <template>
-    <div id="login">
+    <section class="pager is-fullheight has-bg-img">
+        <div class="pager- is-fullhd">
+            <div id="login">
         <h1>Login</h1>
         <input type="text" name="Username" v-model="input.username" placeholder="Username" />
         <input type="password" name="Password" v-model="input.password" placeholder="Password" />
@@ -7,10 +9,13 @@
         <a class="button is-primary" v-on:click="login()">
             <span>Sign In</span>
         </a>
-    </div>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
+    import auth from '../data/auth';
     export default {
         name: 'Login',
         data() {
@@ -22,9 +27,11 @@
             }
         },
         methods: {
-            login() {
+            async login() {
                 if(this.input.username != "" && this.input.password != "") {
-                    if(SERVER_AUTHENTICATES_placeholderfunc) {//TODO here, send this.input.username to server, dont bother hashing pw, is hackathon
+                    let {username, password} = this.input;
+                    let resp = await auth.login(username, password);
+                    if(resp.status === 200) {
                         this.$emit("authenticated", true);//use passport
                         this.$router.replace({ name: "product" });
                     } else {
@@ -47,4 +54,8 @@
         margin-top: 350px;
         padding: 20px;
     }
+.has-bg-img { 
+  background-color: #7cb342;
+  background-size: cover; 
+}
 </style>
