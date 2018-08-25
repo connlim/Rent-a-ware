@@ -11,6 +11,8 @@
 </template>
 
 <script>
+    import {register as registerServer} from '../data/api';
+
     export default {
         name: 'Register',
         data() {
@@ -24,7 +26,7 @@
         methods: {
             register() {
                 if(this.input.username != "" && this.input.password != "") {
-                    //then server registers this guy
+                    registerServer(this.input.username, this.input.password);
                 } else {
                     console.log("A username and password must be present");
                 }
