@@ -21,7 +21,7 @@ const store = new Vuex.Store({
                 id: 1,
                 user: {
                     name: 'Akash',
-                    img: 'assets/logo.png'//replace with his face later
+                    img: 'assets/square.png'//replace with his face later
                 },
                 messages: [
                     {
@@ -37,7 +37,7 @@ const store = new Vuex.Store({
                 id: 2,
                 user: {
                     name: 'Shi Hern',
-                    img: 'assets/logo.png'
+                    img: 'assets/square.png'
                 },
                 messages: [
                     {
