@@ -77,33 +77,52 @@ router.get("/search", async (req, res) => {
         { "name": { $regex : q } },
         { "description": { $regex : q } },
         { "tags": { $elemMatch: { $regex: q } } }
-    ]}));
+    ]}).populate('seller'));
 });
 
 //TODO do something when both buyer and seller confirms
 
 function consolidateDeal(deal) {
-    const buy = deal.buyerSlotProposal;
+    if (!(deal.buyerConfirmation && deal.sellerConfirmation)) return;
+    const buy = deal.buyerSlotProposal.map();
     const sell = deal.ware.slots;
     sell.sort((x,y) => +Date(x.start) - +Date(y.start));
     buy.sort((x,y) => +Date(x.start) - +Date(y.start));
-    for (const slot in buy) {
-        for (const match in sell) {
-
-            if (match.start >= slot.start && match.end <= slot.end) {
-
+    for (let slotIdx = 0; slotIdx < buy.length; slotIdx++) {
+        for (let matchIdx = 0; matchIdx < sell.length; matchIdx++) {
+            const slot = buy[slotIdx];
+            const match = sell[matchIdx];
+            if (match.start <= slot.start && match.end >= slot.end) {
+                const diff1 = +Date(slot.start) - +Date(match.start);
+                const diff2 = +Date(match.end) - +Date(slot.end);
+                sell.split(slotIdx, 1);
+                if (diff1 !== 0)
+                    sell.push({
+                        start: new Date(+Date(match.start)),
+                        end: new Date(+Date(match.start) + diff1)
+                    });
+                if (diff2 !== 0)
+                    sell.push({
+                        start: new Date(+Date(match.end)-diff2),
+                        end: new Date(+Date(match.start))
+                    });
+                break;
             }
         }
     }
+    deal.ware.slots = sell;
+
 }
 
 router.post("/deals/:dealId/buyer-confirm", async (req, res) => {
-    const deal = await Deals.findById(req.param.dealId);
+    const deal = await Deals.findById(req.param.dealId).populate('ware');
     if (req.user._id !== deal.buyer) {
         res.status(400).send("Not buyer!");
         return;
     }
     deal.buyerConfirmation = true;
+    consolidateDeal(deal);
+
     await deal.save();
 });
 
@@ -115,10 +134,9 @@ router.post("/deals/:dealId/seller-confirm", async (req, res) => {
         return;
     }
     deal.sellerConfirmation = true;
+    consolidateDeal(deal);
     await deal.save();
 });
-
-
 
 
 router.get("/", async (req, res, next) => {
