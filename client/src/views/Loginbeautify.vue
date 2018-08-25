@@ -36,9 +36,11 @@ export default {
             }
         },
         methods: {
-            login() {
+            async login() {
                 if(this.input.username != "" && this.input.password != "") {
-                    if(registerServer(username, password)) {//TODO here, send this.input.username to server, dont bother hashing pw, is hackathon
+                    let {username, password} = this.input;
+                    let resp = await auth.login(username, password);
+                    if(resp.status === 200) {
                         this.$emit("authenticated", true);//use passport
                         this.$router.replace({ name: "product" });
                     } else {
