@@ -100,7 +100,7 @@ router.get("/wares/:wareId/image", async (req, res) => {
  * Get. Returns a ware given an id
  */
 router.get("/wares/:wareId", async (req, res) => {
-    res.json(await Wares.findById(req.param.wareId, { imageMimeType: 0, image: 0 }));
+    res.json(await Wares.findById(req.params.wareId, { imageMimeType: 0, image: 0 }));
 });
 
 /*
