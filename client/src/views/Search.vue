@@ -3,14 +3,18 @@
     <Navbar></Navbar>
     <div class="container is-widescreen" style="margin-top: 72px;">
       <div class="columns is-multiline is-mobile">
-        <div class="column is-one-quarter">
+        <div class="column is-one-quarter" v-for="result in results" v-bind:key="result._id">
           <a class="item">
             <figure class="image is-3by2">
               <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
             </figure>
             <div class="content small-margin-top">
-              <h5 style="color: rgb(72, 72, 72)" class="small-margin-bottom">Ti-Nspire CX-CAS Graphing Calculator</h5>
-              <small style="color: rgb(72, 72, 72)">$300 per hour</small>
+              <b-taglist>
+                  <b-tag type="is-info" v-for="tag in result.tags">{{ tag }}</b-tag>
+              </b-taglist>
+              <h5 class="small-margin-bottom gray-color">{{ result.name }}</h5>
+              <small class="gray-color">{{ result.price }}</small>
+              <small class="gray-color">{{ result.location }}</small>
             </div>
           </a>
         </div>
@@ -20,7 +24,8 @@
 </template>
 
 <script>
-import Navbar from "../components/Navbar.vue";
+import Navbar from "../components/Navbar.vue"
+import api from '../data/api.js'
 
 export default {
   name: "Search",
@@ -29,16 +34,34 @@ export default {
   },
   methods: {
     getSearchData: function() {
-
+      // alert(this.$route.params.query)
+      /*
+      * Returns [{
+      *      _id: ObjectId,
+      *      name: String,
+      *      tags: [String],
+      *      seller: { type: ObjectId, ref: "User" },
+      *      location: String,
+      *      price: Number,
+      *      description: String,
+      *      slots: [{start: Date, end: Date}]
+      * }]
+      */
+      api.search(this.$route.params.query)
+        .then(function(res) {
+          console.log(res);
+        });
     }
   },
-  data: function() {
+  created() {
+    this.getSearchData();
+  },
+  updated() {
+    this.getSearchData();
+  },
+  data() {
     return {
-      cost: 10000,
-      owner: "Akash",
-      location: "Pasir Ris",
-      maxDuration: "3 days",
-      datePosted: "2018-09-09",
+      results: []
     }
   }
 };
@@ -51,5 +74,8 @@ export default {
 }
 .small-margin-top {
   margin-top: 0.7em;
+}
+.gray-color {
+  color: rgb(72, 72, 72);
 }
 </style>

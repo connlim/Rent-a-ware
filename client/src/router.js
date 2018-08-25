@@ -30,7 +30,7 @@ export default new Router({
       component: Messaging
     },
     {
-      path: '/search',
+      path: '/search/:query',
       name: 'search',
       component: Search
     }
