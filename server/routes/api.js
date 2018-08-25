@@ -79,6 +79,13 @@ router.post("/wares/create", async (req, res) => {
 });
 
 /*
+ * Get. Returns a ware given an id
+ */
+router.get("/wares/:wareId", async (req, res) => {
+    res.json(await Wares.findById(req.param.wareId));
+});
+
+/*
  * Post ware (the ware's _id), buyerSlotProposal (array of {start: Date, end: Date})
  */
 router.post("/deals/new", async (req, res) => {
@@ -118,6 +125,7 @@ router.get("/search", async (req, res) => {
         { "tags": { $elemMatch: { $regex: q } } }
     ]}).populate('seller'));
 });
+
 
 function consolidateDeal(deal) {
     if (!(deal.buyerConfirmation && deal.sellerConfirmation)) return;
