@@ -95,19 +95,21 @@ export default {
       this.files = [];
     },
     submit: function() {
-      console.log(this.files);
-      let tags_arr = tags.split(',');
-      let ware = {
-        name: this.name,
-        tags: tags_arr,
-        location: this.location,
-        price: this.price,
-        description: this.description,
-        image: this.files[0]
-      };
-      console.log(ware);
+      console.log('File: ' + this.files);
+      var formData = new FormData();
+      let tags_arr = this.tags.split(',');
+
+      formData.append('name', this.name)
+      formData.append('tags', JSON.stringify(tags_arr))
+      formData.append('slots', JSON.stringify([]))
+      formData.append('location', this.location)
+      formData.append('price', this.price)
+      formData.append('description', this.description)
+      formData.append('image', this.files[0])
+      console.log(formData);
+
       let that = this;
-      api.createWare(ware)
+      api.createWare(formData)
         .then(function(res) {
           console.log(res);
         });

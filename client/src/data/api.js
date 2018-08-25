@@ -1,4 +1,4 @@
-import {get, post} from './rest';
+import {get, post, postFormData} from './rest';
 
 export default {
     /*
