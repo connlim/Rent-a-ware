@@ -1,5 +1,5 @@
 <template>
-    <div class="login-page">
+    <div class="login-page" id="login">
   <div class="form">
     <form class="register-form">
       <input type="text" name="Username" v-model="input.username" placeholder="Username"/>

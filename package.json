@@ -4,5 +4,8 @@
   "description": "Rent-a-ware",
   "author": {
     "name": ""
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }
