@@ -41,7 +41,7 @@
                   <b-icon icon="account" type="is-primary"></b-icon>
                   <span>{{ ware.seller.username }}</span>
                 </p><br>
-                <p class="details-list">
+                <p v-if="ware.location" class="details-list">
                   <b-icon icon="map-marker" type="is-primary"></b-icon>
                   <span>{{ ware.location }}</span>
                 </p><br>
