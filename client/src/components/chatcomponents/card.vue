@@ -1,10 +1,7 @@
 <script>
-import { actions } from '../../store';
+import '../../store';
 import { mapGetters } from 'vuex';
 export default {
-    vuex: {
-        actions: actions,
-    },
     methods: {
         onKeyup (e) {
             this.search(e.target.value);

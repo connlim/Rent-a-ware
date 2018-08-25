@@ -56,14 +56,14 @@ const store = new Vuex.Store({
         filterKey: ''
     },
     mutations: {
-        INIT_DATA (state) {
+        initData (state) {
             let data = localStorage.getItem('vue-chat-session');
             if (data) {
                 state.sessions = JSON.parse(data);
             }
         },
         // 发送消息
-        SEND_MESSAGE ({ sessions, currentSessionId }, content) {
+        sendMessage ({ sessions, currentSessionId }, content) {
             let session = sessions.find(item => item.id === currentSessionId);
             session.messages.push({
                 content: content,
@@ -72,11 +72,11 @@ const store = new Vuex.Store({
             });
         },
         // 选择会话
-        SELECT_SESSION (state, id) {
+        selectSession (state, id) {
             state.currentSessionId = id;
         } ,
         // 搜索
-        SET_FILTER_KEY (state, value) {
+        search (state, value) {
             state.filterKey = value;
         }
     },
@@ -106,9 +106,3 @@ store.watch(
 );
 
 export default store;
-export const actions = {
-    initData: () => store.dispatch('INIT_DATA'),
-    sendMessage: ({ dispatch }, content) => dispatch('SEND_MESSAGE', content),
-    selectSession: ({ dispatch }, id) => dispatch('SELECT_SESSION', id),
-    search: ({ dispatch }, value) => dispatch('SET_FILTER_KEY', value)
-};

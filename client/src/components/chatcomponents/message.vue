@@ -1,9 +1,8 @@
 <script>
 import { mapGetters } from 'vuex';
+import Vue from 'vue'
 
 export default {
-    vuex: {
-    },
     filters: {
         // 将日期过滤为 hour:minutes
         time (date) {
@@ -13,14 +12,15 @@ export default {
             return date.getHours() + ':' + date.getMinutes();
         }
     },
-    directives: {
-        // 发送消息后滚动到底部
-        'scroll-bottom' () {
-            this.vm.$nextTick(() => {
-                this.el.scrollTop = this.el.scrollHeight - this.el.clientHeight;
-            });
-        }
-    },
+    // directives: {
+    //     // 发送消息后滚动到底部
+    //     'scroll-bottom': function () {
+    //         let that = this
+    //         Vue.nextTick(() => {
+    //             that.$el.scrollTop = that.$el.scrollHeight - that.$el.clientHeight;
+    //         });
+    //     }
+    // },
     computed: {
         ...mapGetters([
             'user',
